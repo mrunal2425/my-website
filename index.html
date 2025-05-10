@@ -57,10 +57,19 @@
   </style>
 </head>
 <body>
-  <audio id="bgMusic" autoplay loop >
+   <audio id="bgMusic" autoplay loop muted>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  
+  <script>
+    window.addEventListener('load', function () {
+      const audio = document.getElementById('bgMusic');
+      audio.muted = false;
+      audio.play().catch(function (error) {
+        console.log('Autoplay prevented. User interaction needed.');
+      });
+    });
   <div class="card">
     <img src="mummy.png" alt="Mom's Photo">
     <h1>Happy Mother's Day, Aai! 💐</h1>
@@ -72,7 +81,7 @@
     <p>Today is Mother’s Day, and I just want you to know how much I love you and how lucky I am to have you. </p>
     <p>Please don’t stay mad at me.💖</p>
     <div class="heart">❤️</div>
-    <button class="play-button" onclick="document.getElementById('bgMusic').play()">Play Music 🎶</button>
+    //<button class="play-button" onclick="document.getElementById('bgMusic').play()">Play Music 🎶</button>
   </div>
 
 </body>
